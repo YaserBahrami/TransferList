@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		43F98A152E7DF7E600CCAA3A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43F98A142E7DF7E600CCAA3A /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		43F989F02E7DCE9200CCAA3A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,13 +31,14 @@
 		43F989D92E7DCE9100CCAA3A /* TransferList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransferList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F989EF2E7DCE9200CCAA3A /* TransferListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransferListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F989F92E7DCE9200CCAA3A /* TransferListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransferListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43F98A142E7DF7E600CCAA3A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		43F98A012E7DCE9200CCAA3A /* Exceptions for "TransferList" folder in "TransferList" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = 43F989D82E7DCE9100CCAA3A /* TransferList */;
 		};
@@ -88,6 +93,7 @@
 		43F989D02E7DCE9100CCAA3A = {
 			isa = PBXGroup;
 			children = (
+				43F98A142E7DF7E600CCAA3A /* README.md */,
 				43F989DB2E7DCE9100CCAA3A /* TransferList */,
 				43F989F22E7DCE9200CCAA3A /* TransferListTests */,
 				43F989FC2E7DCE9200CCAA3A /* TransferListUITests */,
@@ -225,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F98A152E7DF7E600CCAA3A /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
