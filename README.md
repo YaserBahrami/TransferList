@@ -1,77 +1,83 @@
 # TransferList iOS App
 
-This iOS application is built using Swift and the Combine framework, showcasing a clean architecture with MVVM and Coordinator pattern, network handling, and UI implementation using SnapKit. It interacts with The Movie Database (TMDb) API to fetch popular movies and allow users to search for movies by name.
+TransferList is an iOS sample application built with **Swift** and **Combine**, following **Clean Architecture** and the **MVVM** pattern.  
+It demonstrates a scalable way to display and manage a list of money transfers with a persistent favorites section.
 
-## Features
+---
 
+## ✨ Features
 
-## Technologies Used
+- **All Transfers**: Loads a paginated list of transfers from a mock REST API.
+- **Favorites**: Lets users mark transfers as favorites.  
+  - Favorites are stored persistently in `UserDefaults`.
+  - A horizontal favorites list appears on the home screen when items are favorited.
+- **Details Screen**: Shows full transfer information and allows toggling favorite state.
+- **Search**: Filters both the all-transfers list and the favorites list in real time.
+- **Reactive updates**: Favorites state updates across all screens immediately.
+- **Offline-friendly**: Already-loaded transfers and favorites are preserved between app launches.
 
-- **Swift**: The primary programming language.
-- **Combine**: For handling asynchronous data streams and reactive programming.
-- **SnapKit**: For easy layout management.
+---
 
-## Architecture
+## 🛠 Technologies Used
 
-This project follows the **MVVM** (Model-View-ViewModel) architecture along with **Clean Architecture** principles and Coordinator pattern, making the codebase modular, maintainable, and easy to scale.
+- **Swift 5+**: Core language.
+- **Combine**: Reactive bindings for networking, search, and favorites updates.
+- **UIKit**: UI built entirely in code (no Storyboards, no SnapKit).
+- **UserDefaults**: Lightweight persistent store for favorites.
+- **Git**: Version control.
 
-### Layers:
-1. **Model**: Represents the data (Movie, API responses, etc.).
-2. **View**: The UI components such as `MovieListViewController` and `MovieDetailsViewController`.
-3. **ViewModel**: The intermediary between the view and use cases, responsible for fetching data and providing it to the view.
-4. **UseCases**: The business logic layer that interacts with the repository to fetch data.
-5. **Repository**: Responsible for fetching data from the network layer and providing it to the use cases.
+*(SnapKit was removed to keep the project zero-dependency.)*
 
+---
 
-## Setup
+## 🏛 Architecture
+
+The app follows **Clean Architecture** with **MVVM**:
+
+| Layer            | Responsibility |
+|------------------|----------------|
+| **Entities**     | Pure Swift models (`Transfer`, `Person`, `Card`, etc.) that are independent of frameworks. |
+| **DTOs**         | Network representations (`TransferDTO`) used only for decoding JSON. |
+| **Use Cases**    | Business logic (fetching pages, observing loaded transfers, checking or toggling favorites). Each use case has a small protocol (`…UseCaseProtocol`) for easy mocking. |
+| **Repositories** | Bridge between network and domain, caching already loaded transfers and exposing reactive publishers. |
+| **Presentation** | View models and view controllers for Home, All Transfers list, Favorites list, and Details screen. |
+| **Application / DI** | `AppDIContainer` wires everything together and provides dependency injection. |
+
+This separation keeps the codebase modular, testable, and easy to evolve.
+
+---
+
+## ⚡️ App Flow
+
+1. **Home Screen**  
+   - Top horizontal favorites section (appears only when there are favorites).  
+   - Full vertical list of all transfers.  
+   - Built-in search filters both lists.
+
+2. **Details Screen**  
+   - Shows full details of a transfer (person, card, notes, totals).  
+   - Allows adding/removing the transfer from favorites.
+
+3. **Favorites Persistence**  
+   - Favorites are stored locally and restored on launch.
+
+---
+
+## 🧩 Project Setup
 
 ### Requirements
-
-- Xcode 16.0 or later
-- Swift 5.0 or later
+- Xcode 16.0 or later  
+- Swift 5.9 or later  
 - macOS 15.6 or later
 
 ### Installation
-
-1. Clone the repository:
 ```bash
-  git clone https://github.com/YaserBahrami/TransferList.git
+git clone https://github.com/YaserBahrami/TransferList.git
+cd TransferList
+open TransferList.xcodeproj
 ```
-2. Navigate to the project directory:
-```bash
-  cd TransferList
-```
-3. Install dependencies using Cocoapods:
-```bash
-  pod install
-```
-4. Open the project in Xcode:
-```bash
-  open TransferList.xcodeproj
-```
-
-### Dependencies
-
-- **Combine**: For managing reactive streams.
-- **SnapKit**: For AutoLayout in code.
-
-## Usage
-
-
-## App Flow
-
-- **Home Screen**: Displays a list of Transfer Lists
-- **Search**: Allows users to search for movies by title.
-
-
-## Improvements (If More Time Was Available)
-
-If I had more time, the following improvements and features could be added:
 
 
 ## License
 
 This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) license
-
-
-
