@@ -24,6 +24,7 @@ It demonstrates a scalable way to display and manage a list of money transfers w
 - **Combine**: Reactive bindings for networking, search, and favorites updates.
 - **UIKit**: UI built entirely in code (no Storyboards, no SnapKit).
 - **UserDefaults**: Lightweight persistent store for favorites.
+- **Swift Testing** (`import Testing`): Modern, concise test framework built into Xcode 16+.
 - **Git**: Version control.
 
 *(SnapKit was removed to keep the project zero-dependency.)*
@@ -63,6 +64,14 @@ This separation keeps the codebase modular, testable, and easy to evolve.
 
 ---
 
+## 🖼 Screenshots
+
+| Home Screen | Details Screen | Favorites List | Search Results |
+|-------------|---------------|----------------|----------------|
+| ![Home](TransferList/Screenshots/sc1.png) | ![Details](TransferList/Screenshots/sc3.png) | ![Favorites](TransferList/Screenshots/sc4.png) | ![Search](TransferList/Screenshots/sc2.png) |
+
+---
+
 ## 🧩 Project Setup
 
 ### Requirements
@@ -76,7 +85,21 @@ git clone https://github.com/YaserBahrami/TransferList.git
 cd TransferList
 open TransferList.xcodeproj
 ```
+---
+## 🧪 Testing & Code Coverage
 
+The project ships with a **comprehensive unit-test suite** using the modern **Swift Testing** framework.
+
+- **Scope**: Covers use cases, repositories, view models, and formatting helpers.
+- **Technologies**: Uses `Combine` publishers and `AsyncSequence` to test reactive flows.
+- **Organization**: Test doubles (`MockTransferRepository`, `InMemoryFavoritesStore`) live in `Tests/Support` to keep tests fast and deterministic.
+
+### Running the tests
+- In Xcode: **⌘U**  
+- Or from the command line:
+  ```bash
+  xcodebuild test -scheme TransferList -destination 'platform=iOS Simulator,name=iPhone 16'
+  ```
 
 ## License
 
